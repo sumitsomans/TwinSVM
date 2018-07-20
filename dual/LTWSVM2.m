@@ -49,7 +49,7 @@ try
     bB=u(end,:);
     
 catch
-    wB=rand(N1,1);
+    wB=rand(N1+N2,1);
     bB=rand;
 end
 
