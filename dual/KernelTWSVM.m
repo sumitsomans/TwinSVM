@@ -31,6 +31,8 @@ end
 % Separate data of the two classes
 A=xTrain(yTrain==1,:);
 B=xTrain(yTrain==-1,:);
+N1=size(A,1);
+N2=size(B,1);
 
 
 % Compute training and test kernels
@@ -57,7 +59,9 @@ end
 [ wB, bB, EXITFLAG2 ] = LTWSVM2( KA, KB, C2 );
 
 if (EXITFLAG1~=1 || EXITFLAG2~=1)
-fprintf(1, 'Optimization did not converge! --- EXITFLAG1 = %d --- EXITFLAG2 = %d', EXITFLAG1, EXITFLAG2);
+    fprintf(1, 'Optimization did not converge! --- EXITFLAG1 = %d --- EXITFLAG2 = %d\n', EXITFLAG1, EXITFLAG2);
+    wA=rand(N1+N2,1);bA=rand;
+    wB=rand(N1+N2,1);bB=rand;
 end
 
 % Compute test set predictions
