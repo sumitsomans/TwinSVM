@@ -50,7 +50,7 @@ try
     wA=u(1:end-1,:);
     bA=u(end,:);
 catch
-    wA=rand(N2,1);
+    wA=rand(N1+N2,1);
     bA=rand;
 end
 end
